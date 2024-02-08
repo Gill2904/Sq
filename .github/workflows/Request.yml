@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Minimalist Pages</title>
+    <style>
+        body {
+            font-family: 'Futura', sans-serif;
+            text-align: center;
+            background: radial-gradient(circle, #ff6699, #ff3366); /* Gradient background color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #fff; /* White text color for greetings */
+        }
+
+        #greeting-page {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+
+        #continue-button {
+            background-color: #ff3366; /* Darker pink background color */
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #login-page h1 {
+            font-size: 56px;
+            color: #fff; /* White text color for login title */
+            margin-bottom: 20px;
+        }
+
+        #login-page label {
+            font-size: 23px;
+            color: #fff; /* White text color for label */
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        #name {
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #fff; /* White border for text box */
+            border-radius: 8px;
+            color: #000; /* Black text color for the input */
+            margin-bottom: 20px;
+        }
+
+        #enter-button {
+            background-color: #ff3366; /* Darker pink background color */
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #loading-container {
+            width: 80%;
+            max-width: 400px;
+            padding: 30px;
+            background-color: #ffffff; /* White background for loading container */
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #loading-text {
+            color: #000; /* Black text color for loading text */
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        #loading-bar {
+            background-color: #fff; /* white loading bar color */
+            height: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        #loading-fill {
+            height: 100%;
+            width: 0;
+            background-color: #ff3366; /* Pink loading fill color */
+            border-radius: 8px;
+            transition: width 2s; /* 2s transition for a smoother fill effect */
+        }
+
+        #main-content p {
+            font-size: 18px;
+            color: #fff; /* White text color for content */
+        }
+
+        #main-content button {
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        #positive-button {
+            background-color: #4CAF50; /* Green background color */
+            color: white;
+        }
+
+        #negative-button {
+            background-color: #FF0000; /* Red background color */
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Greeting Page -->
+    <div id="greeting-page">
+        <p>Hello! Please enter your name to continue.</p>
+        <button id="continue-button" onclick="showLoginPage()">Continue</button>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-page" style="display: none;">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+            <button type="button" id="enter-button" onclick="login()">Enter</button>
+        </form>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loading-container" style="display: none;">
+        <p id="loading-text">Welcome, Okreact Kaur Dhillon ❤️</p>
+        <div id="loading-bar">
+            <div id="loading-fill"></div>
+        </div>
+    </div>
+
+    <!-- Main Page -->
+    <div id="main-content" style="display: none;">
+        <p>Please stop saying "ok" to all my messages. 😕</p>
+        <button id="positive-button" onclick="positiveResponse()">Hnji</button>
+        <button id="negative-button" onclick="negativeResponse()">Ok</button>
+    </div>
+
+    <script>
+        function showLoginPage() {
+            document.getElementById("greeting-page").style.display = "none";
+            document.getElementById("login-page").style.display = "block";
+        }
+
+        function login() {
+            let nameInput = document.getElementById("name");
+            if (nameInput.checkValidity()) {
+                document.getElementById("login-page").style.display = "none";
+                document.getElementById("loading-container").style.display = "block";
+                setTimeout(function () {
+                    document.getElementById("loading-fill").style.width = "100%";
+                    setTimeout(function () {
+                        document.getElementById("loading-container").style.display = "none";
+                        document.getElementById("main-content").style.display = "block";
+                    }, 2000);
+                }, 500); // Delay for initial loading animation
+            }
+        }
+
+        function positiveResponse() {
+            alert("Thanku Frienda 🤭");
+        }
+
+        function negativeResponse() {
+            alert("Ktti Frienda 😒");
+        }
+    </script>
+</body>
+</html>
